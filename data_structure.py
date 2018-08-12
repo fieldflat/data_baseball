@@ -19,7 +19,7 @@ for url in urls:
     print('取得URL：'+url)
     df = pd.io.html.read_html(url) #URLから情報を読み取る
     df = df[0] # 様々なtableデータがdf[0], df[1], ... というリストに格納されていく. 最初のtableのみを使用するため, df[0]を指定する.
-    df.to_csv('{0}.csv'.format(ii)) #CSVファイルへ書き込み
+    #df.to_csv('{0}.csv'.format(ii)) #CSVファイルへ書き込み
     ii = ii - 1
     df_all.append(df) # [[],[],[],...,[]]の形の2重リストになっている.
 
@@ -57,35 +57,13 @@ for i in range(len(df_all)):
     df_all[i] = df_all[i].drop(doubled_index)
 
 #カラム名に年を付ける
+ii=2017
 for i in range(len(df_all)):
     for col_name in df_all[i].columns:
         df_all[i] = df_all[i].rename(columns = {col_name:col_name+"20"+"{0:02d}".format(years[i])}) #選手名2017のように...
+    df_all[i].to_csv('{0}.csv'.format(ii)) #CSVファイルへ書き込み
+    ii = ii-1
 
 df_m = pd.concat(df_all,axis=1)
+df_m.to_csv('all_pitcher_data.csv') #CSVファイルへ書き込み
 #print(df_m)
-
-
-#
-#
-# データの操作部分
-#
-#
-#data = '勝利'
-"""
-data_col = ['選手名2017', '選手名2016','選手名2015','選手名2014','選手名2013','選手名2012','選手名2011','選手名2010','選手名2009']
-for col in df_m.columns:
-    #print(col)
-    if '勝利' in col:
-        data_col.append(col)
-        #print(data_col)
-df_m = pd.concat(df_all,axis=1)
-#print(df_m)
-df_m = df_m.sort_values('勝利2017',ascending=False) # 2017年の勝利数に応じてソートする
-#print(df_m)
-df_m = df_m[data_col] #データ表示をdata_col分だけにする
-#print(df_m)
-df_m.to_csv('勝利数.csv') #CSVファイルへ書き込み
-#df_m.head(20)
-
-#print(df_m)
-"""
