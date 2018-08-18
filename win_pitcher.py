@@ -12,20 +12,24 @@ import pandas as pd
 #
 #
 #data = '勝利'
-data_col = ['選手名2017']
-df_m = data.df_m
-for col in df_m.columns:
+data_col = ['登録名']
+#data_col = ['選手名']
+df = data.df_m
+print('lksndflksjdnf')
+print(df)
+for col in df.columns:
     #print(col)
     if '勝利' in col:
         data_col.append(col)
         #print(data_col)
-df_m = pd.concat(data.df_all,axis=1)
-#print(df_m)
-df_m = df_m.sort_values('勝利2017',ascending=False) # 2017年の勝利数に応じてソートする
-#print(df_m)
-df_m = df_m[data_col] #データ表示をdata_col分だけにする
-#print(df_m)
-df_m.to_csv('勝利数.csv') #CSVファイルへ書き込み
-#df_m.head(20)
+#df = pd.concat(data.df_all,axis=1)
+#print(df)
+df = df.sort_values('勝利2017',ascending=False) # 2017年の勝利数に応じてソートする
+#print(df)
+print(data_col)
+df = df[data_col] #データ表示をdata_col分だけにする
+#print(df)
+df.to_csv('勝利数.csv') #CSVファイルへ書き込み
+#df.head(20)
 
-#print(df_m)
+#print(df)
