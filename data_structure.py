@@ -3,13 +3,13 @@ import pandas as pd
 
 #urlをリスト形式で取得
 df_all = [] #各要素に各年のデータが入る
-years = range(17,8,-1) # years = [17,16,15,...,8]
+years = range(18,8,-1) # years = [18,17,16,15,...,8]
 urls = []
 ii = 2017
 
 #URLを入力：2017年だけ命名規則が違う
 for year in years:
-    if(year==17):
+    if(year==18):
         urls.append('http://baseball-data.com/stats/pitcher-all/era-1.html')
     else:
         urls.append('http://baseball-data.com/'+ "{0:02d}".format(year)+'/stats/pitcher-all/era-1.html')
@@ -74,29 +74,12 @@ print(df_m)
 #print(df_m.columns) # Index(['順位2017', '選手名2017', 'チーム2017', '防御率2017', '試合2017', '勝利2017', '敗北2017', ... )
 
 tmp_list = []
-#tmp_list = list(df_m.index)
-tmp_list = range(0, 875)
-#print(tmp_list) #tmp_list = [0,1,2,3,....,873,874]
+tmp_list = list(df_m.index)
+#print(len(tmp_list))
+tmp_list = range(0, len(tmp_list)+1)
 tmp_df = pd.DataFrame({'登録名' : name_list}, index = tmp_list)
 df_m = pd.concat([df_m, tmp_df], axis=1)
 print(len(name_list))
-#print(df_m)
-#print(tmp_df)
-#625
-'''
-k=0
-for i in range(0, 878):
-    if i in tmp_list:
-        print(k)
-        k += 1
-    else:
-        print('lknfslkdnlksdnflksndlkfnsldk')
-'''
-#
-#
-# name_listをDataFlameに変換し, それをdf_mに結合する作業を実行してください.
-#
-#
 
 df_m.to_csv('all_pitcher_data.csv') #CSVファイルへ書き込み
 #print(df_m)
