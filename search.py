@@ -2,6 +2,7 @@
 # 文字列を入力し, その選手の成績を表示する.
 #
 
+
 import pandas as pd
 import data_structure as data
 

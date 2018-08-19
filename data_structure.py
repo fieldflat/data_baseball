@@ -1,6 +1,7 @@
 import numpy
 import pandas as pd
 
+
 #カラム内の文字数。デフォルトは50だった
 pd.set_option("display.max_colwidth", 1000)
 #行数
