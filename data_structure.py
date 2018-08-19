@@ -1,6 +1,11 @@
 import numpy
 import pandas as pd
 
+#カラム内の文字数。デフォルトは50だった
+pd.set_option("display.max_colwidth", 1000)
+#行数
+pd.set_option("display.max_rows", 1000)
+
 #urlをリスト形式で取得
 df_all = [] #各要素に各年のデータが入る
 years = range(18,8,-1) # years = [18,17,16,15,...,9]
