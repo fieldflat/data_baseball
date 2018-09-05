@@ -88,56 +88,6 @@ tmp_list = range(0, len(tmp_list)+1)
 tmp_df = pd.DataFrame({'登録名' : name_list}, index = tmp_list)
 df_m = pd.concat([df_m, tmp_df], axis=1)
 
-#
-# 2009〜2018年の総勝利数
-#
-for i in range(len(df_m)):
-    df_m.loc[i,'総勝ち数'] = 0
-    if not math.isnan(df_m.loc[i,'勝利2018']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2018']
-    if not math.isnan(df_m.loc[i,'勝利2017']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2017']
-    if not math.isnan(df_m.loc[i,'勝利2016']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2016']
-    if not math.isnan(df_m.loc[i,'勝利2015']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2015']
-    if not math.isnan(df_m.loc[i,'勝利2014']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2014']
-    if not math.isnan(df_m.loc[i,'勝利2013']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2013']
-    if not math.isnan(df_m.loc[i,'勝利2012']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2012']
-    if not math.isnan(df_m.loc[i,'勝利2011']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2011']
-    if not math.isnan(df_m.loc[i,'勝利2010']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2010']
-    if not math.isnan(df_m.loc[i,'勝利2009']):
-        df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2009']
-
-for i in range(len(df_m)):
-    df_m.loc[i,'総負け数'] = 0
-    if not math.isnan(df_m.loc[i,'敗北2018']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2018']
-    if not math.isnan(df_m.loc[i,'敗北2017']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2017']
-    if not math.isnan(df_m.loc[i,'敗北2016']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2016']
-    if not math.isnan(df_m.loc[i,'敗北2015']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2015']
-    if not math.isnan(df_m.loc[i,'敗北2014']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2014']
-    if not math.isnan(df_m.loc[i,'敗北2013']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2013']
-    if not math.isnan(df_m.loc[i,'敗北2012']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2012']
-    if not math.isnan(df_m.loc[i,'敗北2011']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2011']
-    if not math.isnan(df_m.loc[i,'敗北2010']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2010']
-    if not math.isnan(df_m.loc[i,'敗北2009']):
-        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2009']
-
-
 
 
 df_m.to_csv('all_pitcher_data.csv') #CSVファイルへ書き込み
