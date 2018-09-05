@@ -70,6 +70,7 @@ for i in range(len(df_all)):
 #
 #カラム名に年を付ける
 #
+ii = 2018
 for i in range(len(df_all)):
     for col_name in df_all[i].columns:
         df_all[i] = df_all[i].rename(columns = {col_name:col_name+"20"+"{0:02d}".format(years[i])}) #選手名2017のように...
@@ -112,6 +113,29 @@ for i in range(len(df_m)):
         df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2010']
     if not math.isnan(df_m.loc[i,'勝利2009']):
         df_m.loc[i,'総勝ち数'] += df_m.loc[i,'勝利2009']
+
+for i in range(len(df_m)):
+    df_m.loc[i,'総負け数'] = 0
+    if not math.isnan(df_m.loc[i,'敗北2018']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2018']
+    if not math.isnan(df_m.loc[i,'敗北2017']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2017']
+    if not math.isnan(df_m.loc[i,'敗北2016']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2016']
+    if not math.isnan(df_m.loc[i,'敗北2015']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2015']
+    if not math.isnan(df_m.loc[i,'敗北2014']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2014']
+    if not math.isnan(df_m.loc[i,'敗北2013']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2013']
+    if not math.isnan(df_m.loc[i,'敗北2012']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2012']
+    if not math.isnan(df_m.loc[i,'敗北2011']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2011']
+    if not math.isnan(df_m.loc[i,'敗北2010']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2010']
+    if not math.isnan(df_m.loc[i,'敗北2009']):
+        df_m.loc[i,'総負け数'] += df_m.loc[i,'敗北2009']
 
 
 
