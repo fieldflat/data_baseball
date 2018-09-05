@@ -47,7 +47,8 @@ for i in range(len(df)):
     df.loc[i,'総与四球'] = base_on_balls_num
     df.loc[i,'総与死球'] = hit_by_pitch_num
     df.loc[i,'総被安打'] = hit_num
-    df.loc[i,'総WHIP数'] = (hit_num + base_on_balls_num + hit_by_pitch_num) / pitch_num
+    #df.loc[i,'総WHIP数'] = (hit_num + base_on_balls_num + hit_by_pitch_num) / pitch_num
+    df.loc[i,'総WHIP数'] = (hit_num + base_on_balls_num) / pitch_num
 
 #print(df)
 for col in df.columns:
